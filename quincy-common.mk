@@ -51,6 +51,9 @@ PRODUCT_PACKAGES += \
 # QRNGD
 PRODUCT_PACKAGES += qrngd
 
+# Bootanimation
+PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/800.zip
+
 # Common features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml
