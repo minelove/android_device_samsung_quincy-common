@@ -42,13 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.rc \
-    init.target.rc \
-    ueventd.qcom.rc
-
-# Hardware
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml 
+    init.qcom.rc
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
@@ -57,9 +51,6 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
     $(LOCAL_PATH)/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-
-# QRNGD
-PRODUCT_PACKAGES += qrngd
 
 # Common features
 PRODUCT_COPY_FILES += \
