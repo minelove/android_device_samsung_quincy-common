@@ -13,7 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!-- shooteru-specific phone app resources. -->
+
+<!-- Phone app resources that may need to be customized
+     for different hardware or product builds. -->
 <resources>
 
     <!-- This device implements a noise suppression device for in call audio-->
@@ -27,5 +29,8 @@
 
     <!-- Show enabled lte option for lte device -->
     <bool name="config_enabled_lte" translatable="false">true</bool>
+
+    <!-- Show APN Settings for some CDMA carriers -->
+    <bool name="config_show_apn_setting_cdma">true</bool>
 
 </resources>
