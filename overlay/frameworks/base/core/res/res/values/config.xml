@@ -101,6 +101,6 @@
     <bool name="skip_restoring_network_selection">true</bool>
 
     <!-- Enable stylus gestures -->
-    <bool name="config_stylusGestures">true</bool>
+    <!--<bool name="config_stylusGestures">true</bool>-->
 
 </resources>
