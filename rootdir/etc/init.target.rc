@@ -32,14 +32,23 @@ on early-init
     mkdir /efs 0771 system system
 
 on fs
+    mount_all fstab.qcom
+
+    # Enable zRAM
+    swapon_all /fstab.qcom
+
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+    wait /dev/block/mmcblk0p26
+    mount ext4 /dev/block/mmcblk0p26 /cache nosuid nodev barrier=1
+
+on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/mdm 0771 system system
     mkdir /tombstones/lpass 0771 system system
 
-    mount_all fstab.qcom
-
-on post-fs-data
     mkdir /system/etc/firmware/misc 0771 system system
     mkdir /system/etc/firmware/misc_mdm 0771 system system
 
