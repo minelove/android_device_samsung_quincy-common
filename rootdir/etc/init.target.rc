@@ -49,6 +49,47 @@ on post-fs-data
     mkdir /tombstones/mdm 0771 system system
     mkdir /tombstones/lpass 0771 system system
 
+on boot
+    chown system system /dev/accelerometer
+    chown system system /dev/akm8975
+    chmod 664	/dev/accelerometer
+    chmod 664	/dev/akm8975
+    chown system system /sys/class/K3G_GYRO-dev/k3g/gyro_selftest_dps
+    chown system system /sys/class/sec/gsensorcal/calibration
+    chown system system /sys/class/proximity/proximity/proximity_avg
+    chown system system /sys/devices/virtual/K3G_GYRO-dev/k3g/gyro_selftest
+    chown system system /sys/devices/virtual/K3G_GYRO-dev/k3g/gyro_get_temp
+    chown system system /sys/devices/virtual/K3G_GYRO-dev/k3g/gyro_power_on
+    chown system system /sys/devices/virtual/K3G_GYRO-dev/k3g/gyro_selftest_dps
+    chown system system /sys/devices/virtual/accelerometer/accelerometer/acc_file
+    chown system system /sys/devices/virtual/sec/gsensorcal/calibration
+    chown system system /sys/class/sensors/barometer_sensor/sea_level_pressure
+    chown system system /sys/class/sensors/barometer_sensor/eeprom_check
+
+    #bln
+    chown system system /sys/class/misc/backlightnotification/notification_led
+    chown system system /sys/class/misc/backlightnotification/enabled
+
+    #camera
+    chown system camera /sys/class/ledflash/sec_ledflash/torch
+
+# Set permissions for vibetonz
+    chown system system /sys/class/timed_output/vibrator/enable
+    chmod 0664 /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_max
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_max
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
+
+# on emmc mount the partition containing firmware
+on post-fs-data 
+    mount ext3 /dev/block/mmcblk0p24 /system remount rw
     mkdir /system/etc/firmware/misc 0771 system system
     mkdir /system/etc/firmware/misc_mdm 0771 system system
 
