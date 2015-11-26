@@ -332,11 +332,6 @@ on boot
 
 # Services begin here
 
-service secril-daemon /system/bin/sec-ril
-    class main
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_diag log
-
 service kickstart /system/bin/qcks l
     oneshot
     disabled
